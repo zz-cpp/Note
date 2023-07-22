@@ -194,3 +194,55 @@ We will discuss what happens when  in a later section!
 
 函数在一个点上的极限和这个点的函数值没有必然的联系，但是他们也可能相等。
 如果他们相等，那么将这种情况称之为函数在这一点处连续,写作：$f$ is continuos at $x=a$,if $\displaystyle \lim_{x \to a}f(x)= f(a)$
+
+We say that a function $f$ is continuous at a point $x=a$ if
+$$\lim_{x \to a}= f(a).$$
+
+In particular, if either  $f(a)$ or $\displaystyle \lim_{x \to a}f(x)$ fails to exist, then $f$ is discontinuous at a.
+
+We say that a function $f$ is right-continuous at a point $x=a$ if $\displaystyle \lim_{x \to a^+}f(x)= f(a)$ .
+
+We say that a function $f$ is left-continuous at a point $x=a$ if $\displaystyle \lim_{x \to a^-}f(x)= f(a)$ .
+
+It is sometimes useful to classify certain types of discontinuities.
+
+If the left-hand limit $\displaystyle {\lim _{x\rightarrow a^-} f(x) }$ and the right-hand limit $\displaystyle {\lim _{x\rightarrow a^+} f(x) }$ both exist at a point $x=a$, but they are not equal, then we say that $f$ has a ==jump discontinuity==  at $x=a$.
+
+![](ref/Unit%200/20230721142637.png)
+
+If the overall limit $\displaystyle {\lim _{x\rightarrow a} f(x) }
+$ exists (i.e., the left- and right-hand limits agree), but the overall limit does not equal $\  f(a)$, then we say that $f$ has a removable discontinuity at $x=a$.
+
+![](ref/Unit%200/20230721142829.png)
+
+### Continuity questions
+
+从图像上，更加准确的理解连续
+
+![](ref/Unit%200/20230721143143.png)
+
+solution：
+![](ref/Unit%200/20230721143314.png)
+
+哪怕图像上是一个尖角，依然可以是连续，这之间没有关系。
+
+### Overall continuity
+
+A function $\  f(x)$ is **continuous** if for every point $c$ in the domain of $f(x)$ , the function $f$ is continuous at the point .
+
+### Catalog of continuous functions
+
+all polynomials
+
+* $\sqrt[3]{x}$
+* $|x|$
+* $\cos{x}$ and $\sin x$
+* exponential functions $a^x$ with base $a>0$
+
+The following functions are continuous (or right continuous) at the specified values of $x$:
+
+* $\sqrt x$, for $x \geq 0$ 
+
+* $\tan x$, at all $x$ where it is defined
+
+* logarithmic functions $\log _{a} x$ with base $a>0$ , for $x>0$
