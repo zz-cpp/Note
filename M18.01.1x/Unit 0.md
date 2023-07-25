@@ -109,7 +109,7 @@ the overall limit可能不存在。
 2. 当左右侧极限存在但是并不相等时，
   ![](ref/Unit 0/20230720144800.png)
 
-一般来说，没有强调，“limit”就是 👉“over limit”。极限的这个概念实际上是微积分的基本组成部分。
+一般来说，没有强调，“limit”就是 👉“overall limit”。极限的这个概念实际上是微积分的基本组成部分。
 
 ### Limit definition
 
@@ -239,10 +239,78 @@ all polynomials
 * $\cos{x}$ and $\sin x$
 * exponential functions $a^x$ with base $a>0$
 
-The following functions are continuous (or right continuous) at the specified values of $x$:
+the following functions are continuous (or right continuous) at the specified values of $x$:
 
 * $\sqrt x$, for $x \geq 0$ 
 
 * $\tan x$, at all $x$ where it is defined
 
 * logarithmic functions $\log _{a} x$ with base $a>0$ , for $x>0$
+
+### ivt (intermediate value theorem)
+
+![](ref/unit%200/20230724142329.png)
+
+如图所示，一条虚线横跨两个点。假设这两点是一个函数上的，那么这个函数是否一定会与这条直线相交?
+
+假如我们知道函数是连续的，那么答案就是肯定的。所以如果f是连续的，它就没有空洞和跳跃。
+所以当我们从这一点移动到这一点时，图形必须至少与线相交一次。
+
+![](ref/unit%200/20230724143257.png)
+但如果他图像是这样的，可能就不止一个交点。但我们知道，至少会存在一个。这就是所谓的中值定理（intermediate value theorem）。
+
+中值定理的定义：
+
+  >如果f是连续的，并且我们有某个值m介于f(a)和f(b)的值之间（换句话说，m是一个中间值），那么至少会有一个点c在a和b之间，使得f(c)等于m。
+
+我们需要满足以下条件才能使用中值定理：
+
+* m在f(a)和f(b)值之间，即f(a) < m < f(b)。
+* f在开区间(a, b)上连续。
+* f在a处右连续，即f(a)存在且等于a的右极限。
+* f在b处左连续，即f(b)存在且等于b的左极限。
+
+为什么需要两边的端点分别作连续和右连续？
+
+**如果这两个点有一个是不连续，那么就没有理由认为，这个端点的函数值可以作为中间值的参考，因为他可以脱离这个函数。**
+
+这就是完整的中值定理。如果f在相关位置是连续的，并且M位于f的这两个值之间，那么f至少在一个地方等于M。
+
+If $f$ is a function which is continuous on the interval $[a,b]
+$ , and  lies between the values of $f(a)$  and $f(b)$, then there is at least one point  between  and  such that $\  f(c) = M.$
+
+(A function $f$ is ==continuous on a closed interval $[a,b]$==  if it is right-continuous at $a$ , left-continuous at $b$ , and continuous at all points between $a$ and $b$.)
+
+|What makes the Intermediate Value Theorem a deep result?|
+|---|
+|The Intermediate Value Theorem is profound because it takes information that is local by nature, and allows you to conclude a global result. Continuity at a point is local information, because it only requires knowledge of the function's behavior near that point. But somehow, if we know this fact at every point on an interval, then the Intermediate Value Theorem tells us something about the overall, or global behavior - namely, that the function has to take on a particular value, or its graph has to cross a certain line.
+This is intimately tied in with the properties of the real number system. We could have the same definition of continuity for functions if we only worked with, say, the rational numbers (numbers which can be written as a fraction of integers), but the Intermediate Value Theorem would not work if that were the case. It is only when we move to the real numbers that the Intermediate Value Theorem holds true. | 
+
+
+#### IVT 2 problem
+
+Let $g(x) = 4x^{-3} - x - \sin (\pi x)$. Does the Intermediate Value Theorem imply that there must be some $c$ between $x=-1$ and $x=1$ where $g(c)=0$?
+
+Solution:
+
+No. Note that $g(x)$ is not continuous on the interval $[-1,1]
+$ , since it is not defined at zero. Hence the Intermediate Value Theorem does not apply in this case.
+
+## Limits of quotients
+
+对于quotion形式的limt:$\displaystyle \frac{g}{f}$,当$f \ne 0$直接使用limit law计算,但是当$f,g \to 0$,他是有意义的.如图所示,
+![](ref/Unit%200/20230724165515.png)
+他模拟的就是B逐渐向A靠近的情况.
+
+Objectives
+
+At the end of this sequence, and after some practice, you should be able to:
+
+* Distinguish the three cases of the Division Limit Law.
+
+* Compute limits of quotients of functions.
+
+* Determine when a limit is.
+
+
+### Limits and division

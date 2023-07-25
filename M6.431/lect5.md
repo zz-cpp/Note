@@ -88,12 +88,12 @@ $\mathbf{P_x}(x)$图像：
  ![](ref/lect5/20230720110811.png)
 伯努利随机变量出现的场景：
 
-* 模拟试验，其结果只能是“成功/失败”，“头部/尾部”等相互对立的结果。
+* 模拟试验（二元实验，只有两种结果），其结果只能是“成功/失败”，“头部/尾部”等相互对立的结果。
 * 当需要建立事件与和随机变量之间的联系
   * ![](ref/lect5/20230720110639.png)
   * 将样本空间划分为事件$A$和$A^c$,当实验的结果属于$A$时，取值为0；反之，取值1。这样的随机变量被称作indicator random variable（$\mathbf{I_A}$）。
   * 其PMF与事件A存在关系：$\displaystyle \mathbf{P_{I_A}}(1)=\mathbf{P}({I_A}=1)=\mathbf{P}(A)$，$\mathbf{I_A}=1$，则事件A发生。
-  * 由此可见indicator随机变量就是伯努利随机变量，**参数P实际就是事件A发生的概率**
+  * 由此可见indicator随机变量就是伯努利随机变量（也不全是，前者表示实验只有两种结果，后者表示事件是否发生，并不关心事件的结果是什么），**参数P实际就是事件A发生的概率**
   * indicator random variable 能够将事件的操作转化为对随机变量的操作
 
 ### Uniform random variables
@@ -128,6 +128,7 @@ $\mathbf{P_x}(x)$图像：
 以下是进行三次实验的tree图，随机变量$X=$实验结果是head的数量
 
 ![](ref/lect5/20230721080209.png)
+
 计算$X=2$时，发生的概率
 $$
 \begin{aligned}
@@ -197,4 +198,82 @@ $\displaystyle \frac{1 \times 200 + 2 \times 500 + 4 \times 300 }{1000}= 1 \time
 
 上述是以两种形式来表示平均收益，即期望值。
 
-由此，期望的一般形式：$$ 
+由此，期望的一般形式：$\displaystyle \mathbf{E}[X]=\sum_x x\times \mathbf{P_X}(x)$ 
+
+期望公式的解释：对一个独立实验进行多次所得到平均值。
+
+此处有一个需要注意的点：
+>如果我们处理的是取值在离散但无限集合中的随机变量，这个求和将是一个无限求和或无限级数。总会有一个问题，即无限级数是否有一个良定义的极限。为了确保它有一个良定义的极限，我们需要假设这个无限级数是绝对收敛的，也就是说，如果我们用它们的绝对值替换x，那么我们正在添加的这些正数或非负数的和将是有限的（$\displaystyle \sum_x x \times \mathbf{P_X}(x) < \infin$）。因此，这是一个我们需要的技术条件，以确保这个期望值是一个良定义且有限的数量。
+
+#### Expectation example
+
+##### Expectation of a Bernoulli r.v.
+
+$$
+x= \begin{cases}
+  1,\, W.P. \qquad p \\
+  0,\, W.P. \qquad 1-p \\
+\end{cases}
+$$
+计算他的期望: $\displaystyle \mathbf{E}[x]= 1\times p + 0 \times (1-p)= p$
+
+如果$X$是事件A的indicator R.V.，$X=I_A$，$X=1$ iff 事件$A$发生，则期望
+$\displaystyle \mathbf{E}[x]=1 \times \mathbf{P_X}(1) + 0 \times \mathbf{P_X}(0)= 1 \times \mathbf{P}(A) +0 \times \mathbf{P}(A^c)= \mathbf{P}(A)=p$
+对于indicator V.R.来说，$\displaystyle \mathbf{E}(I_A)=P(A)$，也就是说 indicator V.R.的期望值就是这个事件发生的概率。
+
+##### Exception of a uniform
+* uniform on $\displaystyle 1,2,3 \dots n$
+
+![](ref/lect5/20230723072557.png)
+
+$\displaystyle \mathbf{E}(X)= \frac{1}{n + 1}(1 + 2 + 3 + 4 + \dots n)= \frac{1}{1 + n} \times (1+2+3+ \cdots n)= \frac{1}{1+n} \times \frac{(1+n)n}{2}= \frac{n}{2}$
+
+由此可见，均匀分布的期望值是他的中点（如果将纵轴想象成有质量的黑线，那么它的期望就是质量的重心）。
+
+##### Exception as a population average
+
+假设我们有一个包含n名学生的班级，并且第i名学生的体重是一些数xi。我们进行一个概率实验，在这个实验中，我们随机选择一个学生，每个学生被选择的概率都是相等的。我们感兴趣的随机变量X是被选中学生的体重。为了简化起见，我们将假设xi都是不同的。
+
+$\displaystyle \mathbf{P_X}(x_i)= \frac{1}{n}$
+$\displaystyle \mathbf{E}(x)=\sum_{i}x_i\frac{1}{n}= \frac{1}{n}\sum_{i}{x_i}$
+在这个实验中，期望值可以被视作是一个群体的真正的平均体重，但在之前的论述中，我们将期望视作是大量重复实验的平均值。此处我们谈论了两种不同的类型的平均值，有两种解释。
+
+### Elementary properties of expectation
+
+以下是随机变量的一些自然的性质
+* if $x \geq 0, \,then \qquad \mathbf{P_X}(x) \geq 0$
+* if $a \leq X \leq b, then \qquad a \leq \mathbf{E}(X) \leq b$
+* if $c$ is a constant, $E[c] = c$
+
+### The expected value rule
+
+已知，随机变量$X$，随机变量$Y= g(X)$,计算这个新值的期望。
+
+![](ref/lect520230723100734.png)
+
+方法一：
+$\displaystyle \mathbf{P_Y}(2)=0 \qquad \mathbf{P_Y}(3)=(0.1+0.2) \qquad \mathbf{P_Y}(4)=(0.3 + 0.4) \qquad \mathbf{P_Y}(5)=0$
+
+使用定义计算：$\displaystyle \sum_{y}{y}{\mathbf{P_Y}(y)}$
+
+方法二（over on x for average）：
+$3 \times 0.1 + 3 \times 0.2 + 4 \times 0.3 + 4 \times 0.4$
+
+$\displaystyle \mathbf{E}(Y)=\mathbf{E}(g(x))=\sum_{x}{\mathbf{P_X}(x)g(x)}$
+
+proof:
+
+对于一个特定的y值，存在与之相关联的x值。固定一个y，对相关联的x计算后,继续下一个y。
+$\displaystyle \sum_{x}{\mathbf{P_X}(x)g(x)}=\sum_{y}\sum_{x: y=g(x)}{\mathbf{P_X}(x)g(x)}= \sum_{y} \sum_{x: y=g(x)}y\mathbf{P_X}(x) = \sum_y y\sum_{x:y=g(x)}\mathbf{P_X}(x)$，因为固定了y，对所有导致了这个y的x的概率求和,得出的就是y发生的概率$=\displaystyle \sum_y y \mathbf{P_Y}(y)= \mathbf{E[y]}$。
+之所以可以将y移动到第一个求和的外面，主要是因为此时这个y是一个固定值。
+两种方法的等式是相同的，证明方法二是正确的。
+
+Note: 
+* $\displaystyle \mathbf{E[x^2]}= \sum_x x^2\mathbf{P_X(x)}$
+* **一般来说 $\mathbf{E[g(x)]} \ne \mathbf{g(E[x])}$**
+
+### Linearity of expectations
+
+* R.V : $X, Y= aX + b$
+* $\displaystyle \mathbf{E[Y]}= \mathbf{\sum_x g(x)}P_X(x)=\mathbf{\sum_x (x+b)}P_X(x)= a\sum_x xP_X(x) + b\sum_x P_X= a\mathbf{E(x)} + b$
+* 这个法则只对线性函数正确的。
