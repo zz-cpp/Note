@@ -314,3 +314,37 @@ At the end of this sequence, and after some practice, you should be able to:
 
 
 ### Limits and division
+
+存在：
+$\displaystyle \lim_{x \to a}f(x) = L$
+$\displaystyle \lim_{x \to a}g(x) = M$
+
+对于这样的式子：$\displaystyle \lim_{x \to a}\frac{f(x)}{g(x)}$
+
+* if $M \ne 0$, $\displaystyle \lim_{x \to a}\frac{f(x)}{g(x)}= \frac{L}{M}$
+* if $M = 0 \quad and \quad L\ne 0$ $\displaystyle \lim_{x \to a}\frac{f(x)}{g(x)}= \frac{L}{0}$,没有定义DNE
+* if $M = 0 \quad and \quad L=0$ ,$\displaystyle \lim_{x \to a}\frac{f(x)}{g(x)}= \frac{L}{M} = \frac{small}{small}$
+
+第三种情况比较不同，对于：$\displaystyle \lim_{x \to 0} \frac{2x}{x}$这个式子是可以先通过约分cancle $x$，如此一来可以得到一个常数表达式2。
+
+在这个问题中，h要注意无论i是x,2x亦或者是$x \to 0 $,本质上都不是在考虑$=0$，我们始终都只是在考虑靠近0。
+
+### Small divided by small
+
+对于所说的第三种情况，我们需要更多的信息才能判断出具体的值。可能的结果{near 0，a big value, not big but no near 0}
+
+### Limit Law for Division
+
+![](ref/Unit%200/20230801120535.png)
+
+**突然发现一个本质：$\lim$i就是用来计算"near"的，i他最终的o结果iah也是"near"值。**
+
+
+### Using the division limit law
+
+h针对第三种情况，做如下的工作：
+1. 整理式子
+2. 约分
+
+
+

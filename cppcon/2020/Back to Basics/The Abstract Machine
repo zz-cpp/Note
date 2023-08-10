@@ -1,0 +1,27 @@
+# The Abstract Machine -Bob Steagall 
+
+## Abstract Machine
+
+Why want to Machine
+因为我们想要将我们的程序运行在多个复杂的计算机中。
+
+How does C++ implement goals
+
+
+1. C++没有在中间层放置抽象
+   * 不需要存在中间语言提升性能；
+   * 没有jvm
+   * 编译器优化代码
+
+2. cpp直接将类型和操作直接对应硬件
+
+Abstract mashine close to hardware
+
+side effect
+* 调用函数IO
+* 读取变量被volatitle；
+* 修改一个对象；
+* 所有以上行为的函数调用
+
+expression
+能够茶圣一个值和side effect
