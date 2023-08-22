@@ -1,3 +1,8 @@
+# Unit 4: Discrete random variables
+## 
+
+
+
 * Variance and its properties
   * Variance of the Bernoulli and uniform PMFs
 * Conditioning a r.v. on an event
@@ -12,7 +17,7 @@
   * Linearity of expectations
 * The mean of the binomial PMF
 
-## Variance—— a measure of the spread of PMF
+### Variance—— a measure of the spread of PMF
 
 distanve from the mran
 假设有两个算计变量，red和blue，他们有相同的均质（mean）—— $\mathbf{E[X]}=\mu$，随机变量的值与其期望之差。
@@ -260,7 +265,7 @@ $\displaystyle \mathbf{P_{X - 1 \mid X > 1}}(X -1 )= \mathbf{P}(X - 1 \mid x > 1
 也就是说前面的n次实验都是没有效果的，是无用功（挺符合几何分布的意义）。
 
 
-### the mean of the gemohetricaaak
+### the mean of the geomrtric
 
 $承接上文，计算\mathbf{E}[X]$
 如果直接使用定义计算，需要计算无限和，这是表较困难的,$\displaystyle \mathbf{E}[X] = \sum_x^{\infin} x\mathbf{P_X}(x)$
@@ -319,16 +324,16 @@ $\displaystyle P_{X,Y}(1,3)= \frac{1}{3}$
 
 $\displaystyle \frac{1}{20} + \frac{3}{20}+ \frac{1}{20}= \frac{7}{20}$，
 
-a由此可以推导出公式：
+由此可以推导出公式：
 
-$\displaystyle P_X(x)= \sum_x P_{X,Y}(x,y)$
-$\displaystyle P_Y(y)= \sum_y P_{X,Y}(x,y)$
+$\displaystyle P_X(x)= \sum_y P_{X,Y}(x,y)$
+$\displaystyle P_Y(y)= \sum_x P_{X,Y}(x,y)$
 
 #### More than two random varibles
 
 由上面的式子可以继续扩展到更多的随机变量，
 
-$\displaystyle P_{X,Y,Z}(x,y,z)= \sum_x\sum_y\sum_z P_{X,Y,Z}(x,y,z)$
+$\displaystyle P_{X,Y,Z}(x,y,z)= P(X=x \, and \,Y=y \, and \, Z=z )$
 
 #### Function of multiple random varibales
 

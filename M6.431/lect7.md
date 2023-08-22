@@ -150,7 +150,128 @@ $\displaystyle {{\bf E}[g(X,Y)\mid Y=2]} =\sum_x \sum_y g(x,y)p_{X,Y \mid Y=2}(x
 * $E[X + Y + Z] = E[X] + E[Y] + E[Z]$ always true。
 
 但是，如果$X \,Y$是独立的：$E[XY]=E[X]E[Y]$
-$g(x) \, and \, h(Y)$也是独立的：$E[g(X)h(Y)]=E[g(X)]E[h(Y)]$
+$g(X) \, and \, h(Y)$也是独立的：$E[g(X)h(Y)]=E[g(X)]E[h(Y)]$
 
-Prove：
+**Prove**：
 令$g(x,y)=xy\qquad E[g(X,Y)]$
+
+$E[g(X,Y)]= \sum_x \sum_y xyP_{X,Y}(x,y)$
+
+$P_{X,Y}(X,Y)=P_X(X)P_Y(Y)$, because it's independence.
+
+$E[g(X,Y)]= \sum_x xP_X(X)\sum_y y P_Y(Y)=E[X]E[Y]$
+
+### Independence, variances, and the binomial variance
+
+方差所具有的性质：$Var(aX)=a^2Var(X) \qquad Var(X + b)= Var(X)$
+
+一般情况下，和的方差不能拆封成两个方差的和：$Var(X + Y) \neq Var(X) + Var(Y)$
+
+但是当X和Y相互是独立时，这个关系是成立的。
+
+**Prove:**
+
+假设$E[X]=0 \quad E[Y]=0$，只是为了方便运算。
+
+X和Y是相互独立的，所以存在$E[XY]=E[X]E[Y]$。
+
+$Var(X + Y)=E[(X + Y - 0)^2] = E[X^2 - 2XY + Y^2]= E[X^2] + E[Y^2]  + E[2XY]$，这个式子的推导来源于每一项的定义和拆分技巧。
+
+$E[(X - 0)^2]=Var(X)$
+
+$E[(Y - 0)^2]=Var(Y)$
+
+所以原式为：$Var(X) + Var(Y) + 0 $
+
+由此可以推出：$Var(X + Y )=Var(X) + Var(Y) $
+
+Example：
+
+- if X = Y: $Var(X + Y)=Var(2X)=4Var(X)$ 利用方差的普通的属性。
+
+- if X = -Y: $Var(X + Y)= Var(0)= 0$
+
+- if X,Y independence : $Var(X - 3Y)=Var(X) + Var(-3Y) = Var(X) + 9Var(Y)$
+
+#### Variance of the binomial
+
+![](ref/lect7/20230810142120.png)
+
+根据上面推导的关系，可以将n个独立的二项式实验拆分成一个一个小实验。那么计算方差的方法可以简化为：$Var(X)=Var(X_1) + Var(X_2) + Var(X_3) + \cdots + Var(X_n) = n Var(X_1)=np(1-p)$s
+
+### The hat problem
+
+![](ref/lect7/20230811115251.png)
+
+n个人n个帽子，将帽子的分配以序列的方式展现，每一种排序等可能性，所以如果有n个人，就会有n！个排列。
+
+第二种分析的模型是：第一个人从n个帽子中选择一个，第二个人从n-1个人选择一个，同n样可以获得相同的结果。
+
+此处我们选择的是第一种模型。
+
+定义X：正确的人取得自己帽子的数量。
+
+
+#### 计算$X$的期望：
+
+倘若i直接使用期望的定义计算：$\displaystyle E[X]= \sum_x x P_X(x)$，在计算X单独输出的值的概率时，需要分别单独计算，在数值较大时很困难。
+
+将$X$拆分成：$X_1,X_2,X_3,X_4, \cdots,X_n$
+
+$X_i$为第i次试验的indicator R.V.,若取得正确的帽子则输出为1,错误则输出为0。
+indivator R.V.的期望是p。
+
+
+
+在此处使用期望的线性性质：$E[X]=E[X_1] + E[X_2] + E[X_3]+ \cdots + E[X_n]$
+
+$P_{X_i}(x)$概率的来源：
+
+* 这里针对帽子进行排序。
+* 对于第i次试验,固定这个位置，对于其他的n - 1个位置排序有$(n-1)!$种情况,总共会有$n！$种情况,所以存在$\displaystyle P_{X_i}(1)= \frac{n-1!}{n!} = \frac{1}{n}$。
+* 对于任意的i,他的概率都满足上式，所有全都是$\displaystyle \frac{1}{n}$
+
+由此可以计算出$\displaystyle E[X_i]=\frac{1}{n} \qquad E[X]=n * \frac{1}{n}=1$
+
+
+>When the first slot of hat is fixed, there is n-1 choices for 2nd slot. But since the first slot will change to every possible hat, we still have n all  choices for 2nd slot and the same for i-th slot. 
+>The assignments of the hats compose the complete permutations of the hats which is our sample space with size $n!$ . For each position i, considering all assignments (sequences), each hat will appear there (at i-th position in all assignments/sequences) with $n!/n = (n-1)!$ times and this is same for all s. Assume all permutations have same probability, the probability of having particular hat is then $(n-1)!/n! = 1/n$ . This is calculated by counting the number of assignments/sequences which have the particular hat at i-th position($(n-1)!$calculated above)divided by the total number of the assignments (n!). Therefore $E[X_i] = E[X_1] = 1/n$.
+>If $n!/n$ is not obvious to you, you can also count the assignments which have particular hat at i-th position with the following thought: fix i-th position and change the order of all other positions and you will get the same $(n-1)!$.
+
+>这段材料讨论了关于“帽子问题”的问题。在这个问题中，有n个人，每个人都有一顶帽子，然后帽子被随机洗牌分配给这些人。文章试图解释每个人得到自己帽子的期望概率。
+文章首先考虑了每个位置上帽子的分配情况。当第一个位置上的帽子被确定后，第二个位置上有n-1种选择。但由于第一个位置的帽子会变化到每个可能的帽子，第二个位置仍然有n种选择，第i个位置也是如此。这意味着每个位置上的帽子选择是对称的。
+接下来，文章考虑了所有帽子分配的情况，构成了帽子的完整排列，作为样本空间，大小为n!。对于每个位置i，考虑所有的分配（序列），每个帽子将会出现在那里（在所有分配/序列的第i个位置上）$n!/n = (n-1)!$次，对所有的s都是一样的。假设所有的排列具有相同的概率，那么拥有特定帽子的概率就是$(n-1)!/n! = 1/n$。这是通过计算具有特定帽子在第i个位置的分配/序列的数量（上面计算得到的$(n-1)!$）除以总分配数（n!）来计算的。因此，$E[X_i] = E[X_1] = 1/n$，表示每个人得到自己帽子的期望概率是1/n。
+文章最后指出，如果$n!/n$对你来说不是很明显，你还可以通过以下思路计算在第i个位置上有特定帽子的分配数：固定第i个位置，并改变所有其他位置的顺序，你将得到相同的$(n-1)!$。这是因为在这个操作下，只有第i个位置上的帽子在变化位置，其他位置上的帽子是不变的，所以共有$(n-1)!$种不同的排列方式。
+
+#### The Variance in hat problem
+
+此处如果可以证明随机变量$X_i$是相互独立的，那么ao就可以使用独立性下随机变量方差的性质做出上面类似期望的处理。
+
+假设帽子的数量是2,如果我们知道第一个人取得的帽子是自己的，那么第二个人娶得帽子就一定是自己的。否定也是一样的情况。
+
+对于n的情况，假设我们已经得知n-1所有的取得的i帽子的情况，也会出现上述同样的问题，所以据此可以判断，$X_i$并不是独立的。
+
+对于计算方差，一般使用简化式计算通常会比较方便：$Var(X)=E[X^2]-(E[X]^2)$
+
+* $X = X_1 + X_2 + X_3 + \cdots + X_n $
+* $\displaystyle X^2 = \sum_{i} X_{i}^2 + \sum_{i,j: i \neq j} X_i X_j$，项数分别是n和 $n^2 - n$
+* $X_i = 1 \, or \,0$
+
+$\displaystyle E[X^2] =E[\sum_{i} X_{i}^2 + \sum_{i,j: i \neq j} X_i X_j ] $，利用线性性质，拆分成n个平方项期望和$n^2 - n$个$X_iX_j$期望。
+
+因为$X_i$是Bonuli V.B.,$X_i$等效于$X_i ^2$
+$\displaystyle E[X_i ^2] = E[X_i]=1 \times P_{X_i}(1) = \frac{1}{n}$
+
+$\displaystyle E[X_i X_j]= 1 \times P_{X_i,X_j}(1,1) = P(X_i=1 \, X_j=1)= P(X_i = 1)P(X_j=1 \mid X_i=1) = \frac{1}{n} \times \frac{1}{n - 1}$
+
+一个人得到自己的帽子的概率是1/n。在给定第一个人得到自己的帽子的情况下，第二个人面临的情况是有n-1顶可用的帽子。其中一顶是那个人的帽子。因此，第二个人也会选择自己的帽子的概率是1除以n-1。
+
+现在，我们已经可以计算X的平方的期望值了。X的平方的期望值由n个期望值的和组成，每个期望值都等于1/n，再加上很多期望值，因为我们有很多项，每一项都是1/n乘以1除以n-1。我们看到这里有一些相互抵消的部分。我们得到了抵消，得到了1加1，等于2。
+
+另一方面，我们有这个需要减去的项。我们之前找到过X的期望值等于1。所以我们需要减去1。我们问题的最终答案是X的方差也等于1。
+
+综合以上，$Var(X) = 2 - 1 = 1$
+
+**summary**
+
+在这个问题中，我们看到我们可以处理相当复杂的模型，但是通过将它们分解成更易处理的部分，首先将随机变量X分解成不同的随机变量的和，然后将其平方并将其分解成许多不同的项，然后逐一考虑每一项，我们通常可以得到解决问题的解答或答案，而这些问题在其他情况下可能会非常困难。

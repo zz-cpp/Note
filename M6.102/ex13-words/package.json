@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "engines": {
+    "node": "^18.0.x"
+  },
+  "scripts": {
+    "Words1": "tsc && node --require source-map-support/register dist/Words1.js",
+    "Words2": "tsc && node --require source-map-support/register dist/Words2.js"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.18",
+    "source-map-support": "^0.5.21",
+    "typescript": "^4.9.5"
+  }
+}
