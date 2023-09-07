@@ -1,4 +1,3 @@
-
 # Unit 5: Continuous random variables
 
 ## Unit overview
@@ -124,7 +123,7 @@ PDF 不是概率，而是密度。单位是(概率\单位长度)。如果单位�
 
 ![](ref/lect8/20230821155628.png)
 
-此处需要计算$\displaystyle \int_a^\infin{\lambda e^{-\lambda x}d}x$。对于形如$\displaystyle \int {e^{ax}d}x$积分可得$\displaystyle \frac{1}{a} e^{ax}$。用$a= -\lambda$替换，最后计算可得到表达式$\displaystyle e^{-\lambda a}$。
+此处需要计算 **概率** $\displaystyle \int_a^\infin{\lambda e^{-\lambda x}d}x$。对于形如$\displaystyle \int {e^{ax}d}x$积分可得$\displaystyle \frac{1}{a} e^{ax}$。用$a= -\lambda$替换，最后计算可得到表达式$\displaystyle e^{-\lambda a}$。
 此处如果，将$a=0$，表达式的值是1。
 
 ![](ref/lect8/20230821171115.png)
