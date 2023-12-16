@@ -21,13 +21,18 @@ A more abstract version of the conditional variance
 
 #### 函数
 
-首先左侧的$h$表示的是函数，将一个数字$x$映射到他的平方。
+$\displaystyle h(x)= x^2$
 
-$X$是一个随机变量，当我们写下h(X)时，对于定义为一个二次函数的h（例如在这种特定方式下），$h(X)$被定义为一个随机变量。它是随机变量，在随机变量大写的X恰好取值为小x时，取值为小x的平方。这个随机变量通常被表示为随机变量X的平方。
+带入随机变量X
+$\displaystyle h(X)= h(x) = x^2, if X = x$
 
 #### 条件期望
 
-$g$是函数，$y$是特定的一些值，$g(Y)$是随机变量，如图所解释，当$Y$是某一个小$y$值时，$g(Y)$的值是$g(y)$。所以它是一个特定的随机变量，我们称之为给定随机变量Y的随机变量X的抽象条件期望。
+$\displaystyle E[X \mid Y=y] = \sum_x xP_{X\mid Y}(x\mid y)$
+
+每当给定一个y值都会有一个对应的期望值，实际上可以将这个看成是一个函数：g(y)。
+
+那么$E[X\mid Y]$可以表述成：g(Y)=g(y), if Y=y。
 
 #### example
 
@@ -40,13 +45,44 @@ $g$是函数，$y$是特定的一些值，$g(Y)$是随机变量，如图所解�
 solution:
 ![](ref/lect13/20230831101452.png)
 
-### The law of iterated expectations
+### The law of iterated expectations(iteration)
 
 ![](ref/lect13/20230901141756.png)                                                              
 
 此处我们定义了函数$g$，并将其与$E[X \mid Y]$联系起来，接着计算$E[E[X \mid Y]]$。使用期望的定义展开这个表达式会发现最终就是再计算$X$的期望，这实际就是之前的toatal Exception Theorem。
 
 > "Iterated" just means "repeated", so it looks like reasonable nomenclature to me (even if it is just a single iteration).
+
+[期望迭代法则\_哔哩哔哩\_bilibili](https://www.bilibili.com/video/BV1qY411d77F/?spm_id_from=333.337.search-card.all.click&vd_source=eb7174ecd17a64bb859cc760973c622c)
+
+![](ref/lect13/20231011153006.png)
+
+这个讲解使用了具体的例子，partiton 按照Y的值，X：表示收入。这是一个离散的例子。
+
+左侧计算出了总体的关于X的期望。
+右侧按照Y的取值，求得对应的条件期望：Y=1; Y=0;
+$\displaystyle E[E[X \mid Y]]$在这个上下文中相当于求右侧两个分组的期望的期望。这个过程其实就是total expection thorem。
+
+
+以下是有关iterated expectation的证明：
+
+![](ref/lect13/20231011154237.png)
+
+将$\displaystyle E[E[X \mid Y]]$按照期望的定义式展开。按照之前的例子，我们按照Y分区，因此展开也是按照Y展开。另一个角度来看，**期望本身是一个常量，在条件变量中，一旦我们确认了一个条件的值，也就确认了所要计算随机变量的范围，他的概率，他的取值都是已有的数据(X)**
+所以此处的变量是Y。所以我们将$\displaystyle E[X \mid Y]$设为函数：$\displaystyle g(y)$
+
+当我们展开后，得到这个式子：$\displaystyle \sum_{y} E[X \mid Y] \times P_ {Y}(y) $，这个形式对应着Total expection theorem。
+此处可以看到，这两者表达的内容是一致的。
+
+![](ref/lect13/20231011155954.png)
+
+当继续用期望的定义展开$\displaystyle E[X \mid Y]$，可以得到一个双求和的表达式，其中在简化时，使用了条件概率的性质：$\displaystyle P(y)P_{X \mid Y}(x \mid y) = P(X,Y)$
+
+![](ref/lect13/20231011162416.png)
+
+经过上文的变换我么得到的是一个joint distribution，对于joint distribution我们知道，固定一个X值，将此时对应所有的Y值的概率相加，就是X的margin分布。最后得到途中最后一个式子，他也是期望的定义式。
+
+以上是使用离散随机变量证明的，连续也是同样成立。
 
 #### Problem
 
@@ -165,6 +201,7 @@ $\displaystyle var(X \mid Y)$，差不多，对于每一个单独的情况，使
 现在使用 total variance 计算总的$\displaystyle var(X)$。
 
 根据这个题目的背景，来解释$\displaystyle var(x)$的组成：
+
 1. 每一个section中的方差，我们单独思考某一个section中的"差异"，然后取所有section的平均值。
 2. 第二部分是考虑不同的section的mean，弄清楚不同的section的mean之间的差异。每一个section的期望与总体之间的“差异”，他衡量了不同section之间的差异。
 

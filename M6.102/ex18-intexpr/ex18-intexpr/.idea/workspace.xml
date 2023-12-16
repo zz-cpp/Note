@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e683a65b-d28b-4312-bec2-f66ace3dba4a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../lect10.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../lect10.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lect12.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../../lect12.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lect13-2.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lect14.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../lect14.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lect6.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../../lect6.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lect7.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../lect7.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lect8.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../lect8.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../M6.431/2023-09-04-19-46-16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../M6.431/lect/sp2/20230710161138.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../M6.431/lect11/20230825120524.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../M6.431/lect12.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../M6.431/lect12.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../M6.431/lect13.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../M6.431/lect13.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../M6.431/lect15.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../M6.431/lect15.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../M6.431/lect16.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../M6.431/lect16.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../M6.431/lect6.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../M6.431/lect6.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../M6.431/lect7.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../M6.431/lect7.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../M6.431/lect8.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../M6.431/lect8.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../M6.431/lect9.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../M6.431/lect9.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../M6.431/red/lect13/20230902091136.png" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2Xh4f6VaFsJIxtCG6f3nPLThKo8" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/media/zz/GUNDAM/Downloads/M6.005/second/ps1.zip",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.idesettings.quicklists",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="JUnit.IntegerExpressionParserTest">
+    <configuration name="IntegerExpressionParser" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="21" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="intexpr.IntegerExpressionParser" />
+      <module name="ex18-intexpr" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="intexpr.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="IntegerExpressionParserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ex18-intexpr" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="intexpr.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="intexpr" />
+      <option name="MAIN_CLASS_NAME" value="intexpr.IntegerExpressionParserTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="IntegerExpressionParserTest.testConstant" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ex18-intexpr" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="intexpr.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="intexpr" />
+      <option name="MAIN_CLASS_NAME" value="intexpr.IntegerExpressionParserTest" />
+      <option name="METHOD_NAME" value="testConstant" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.IntegerExpressionParserTest" />
+        <item itemvalue="Application.IntegerExpressionParser" />
+        <item itemvalue="JUnit.IntegerExpressionParserTest.testConstant" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e683a65b-d28b-4312-bec2-f66ace3dba4a" name="Changes" comment="" />
+      <created>1699068081002</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1699068081002</updated>
+      <workItem from="1699068085941" duration="1169000" />
+      <workItem from="1699070940473" duration="2175000" />
+      <workItem from="1699148717071" duration="633000" />
+      <workItem from="1699233726353" duration="3467000" />
+      <workItem from="1699265875022" duration="167000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

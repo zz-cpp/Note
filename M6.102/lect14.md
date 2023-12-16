@@ -1,7 +1,5 @@
 # Reading 14: Concurrency
 
-
-
 ## Concurrency
 
 Concurrency 是多个计算同时发生。

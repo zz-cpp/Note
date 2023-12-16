@@ -24,11 +24,18 @@ Four variants of the Bayes rule
 
 与之前相同，使用概率密度替换离散中的概率，得出随机变量下的条件PDF的定义式子。
 
-有关上定义的解释：
+对于连续的随机变量将将$\displaystyle P_{X,Y}(x,y)$转换成PDF：
 
-由于连续随机变量在某一点的概率是0,所以当将$A$转换为随机变量$Y$时，只能令$Y$大概等于变量具体的值$y$，无法构造$Y=y$，即一小段区间。
+$\displaystyle P_{X,Y}(x,y) = P(x \leq x + \delta, y \leq Y \leq \epsilon+y)=f_{X,Y}(x,y)\times s \quad s = \delta \epsilon$。
+这里的s在连续随机变量中就是x和y组成的面积，对于联合密度来说面积就是X和Y围成的面积。
 
-这么一来，就构造出了一个微小的矩形面积，之后根据条件连续随机变量的定义式子，化简cancle y处的长度$\epsilon$。
+然后计算出Y的概率：$\displaystyle P_Y(y)=f_Y(y)\epsilon$
+
+根据离散随机变量的公式，用相对应的连续随机变量代替，这样就可以推导出连续随机变量的条件概率是多少：
+
+$\displaystyle P_{X \mid Y}(x\mid y)= \frac{f_{X,Y}(x,y)\times  \delta \epsilon}{f_Y(y)\epsilon}=f_{X \mid Y}(x \mid y)\delta$
+
+$\displaystyle f_{X \mid Y}(x \mid y) = \frac{f_{X,Y}(x,y)}{f_Y(y)}$
 
 --- 
 
@@ -46,20 +53,20 @@ Four variants of the Bayes rule
 
 进一步理解条件概率密度函数的定义：$\displaystyle f_{X \mid Y}(x \mid y)= \frac{f_{X,Y}(x,y)}{f_Y(y)}$
 
-* $\displaystyle f_{X \mid Y}(x \mid y) $非负
+* $\displaystyle f_{X \mid Y}(x \mid y)$非负
 
 * 固定某一个y值，从图像上看，联合PDF的变化好像只于x相关，类似切片，但是分母的存在，多出了缩放因子。固定了小 y 并对所有 x 进行积分，使用这个定义，由于分母是一个常数，不涉及 x，我们只需要对分子进行积分。我们会认出分子对应于我们之前的边际分布的公式——Y 的边际概率密度函数。从联合中，这就是我们如何恢复 Y 的边际概率密度函数。
 
 
 * 固定了小 y 并对所有 x 进行积分，分子是常数，只有分母积分，可以看到分子与分母大小相同。
 
-* 乘法规则，移动多项式，与离散中的定义相似
+* 推导出乘法规则(将$f_Y(y)$移动到右边)，与离散中的定义相似。
 
 ### Total probability and total expectation theorems
 
 ![](ref/lect10/20230823222403.png)
 
-1. 全概率
+1. 全概率(total probability theorems)
 2. 条件期望
 3. 全期望 （建议从E[x]的定义开始推导，图中从下向上）
 
@@ -77,7 +84,12 @@ Four variants of the Bayes rule
 
 类比于离散情况，我们将会说，如果联合连续随机变量的联合概率密度函数等于边际概率密度函数的乘积，那么它们是独立的。现在我们可以与乘法法则进行比较，只要 Y 的密度是正的，这个法则总是成立的。
 
+独立性的直观解释：
+
+$\displaystyle f_X(x)=f_{X\mid y}(x\mid y)$
+
 **独立性就等同于要求联合的所有切片具有相同的形状，而这个形状是边际概率密度函数的形状**。更具直观解释，无论观察 Y 的哪个值，X 的分布都不会改变。在这种意义上，Y 不会传达关于 X 的任何信息。请注意，这个定义在 X 和 Y 方面是对称的。所以从对称性来看，当我们有独立性时，也意味着 X 不会传达关于 Y 的任何信息，且在给定 X 的情况下，Y 的条件密度必须与 Y 的无条件密度相同。
+
 
 
 ### Stick-breaking example

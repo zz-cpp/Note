@@ -51,7 +51,7 @@ $\displaystyle P_{X \mid Y}(X, Y)=\frac{P_{X,Y}(x,y)}{P_Y(y)}$，这个定义式
 
 * Multiplication Rules
   * $\displaystyle P_{X,Y,Z}(x,y,z)=P_{X}(x)P_{Y \mid X}(y)P_{Z \mid X,Y}(z \mid x,y)$
-  * 他的推导过程源自将多个参数的条件概率的事件换成条件变量。
+  * 他的推导过程源自将多个参数的的事件换成条件变量。
 
 ##### exercise
 
@@ -91,6 +91,7 @@ $\displaystyle P_X(x)= \sum_{y}P_Y(y)P_{X \mid Y}(x \mid y) $
 Total probability 可以使用加法定理证明，但期望超出了这门课的范围。
 
 #### Exercise: The expected value rule with conditioning
+
 * $\displaystyle {{\bf E}[g(X,Y)\mid Y=2]}$
 * $p_{X,Y\mid Y}(x,2\mid 2)=\mathbf{P}(X=x, Y=2\mid Y=2)=\mathbf{P}(X=x\mid Y=2)=p_{X\mid Y}(x\mid 2),
 $
@@ -197,7 +198,7 @@ Example：
 
 ![](ref/lect7/20230810142120.png)
 
-根据上面推导的关系，可以将n个独立的二项式实验拆分成一个一个小实验。那么计算方差的方法可以简化为：$Var(X)=Var(X_1) + Var(X_2) + Var(X_3) + \cdots + Var(X_n) = n Var(X_1)=np(1-p)$s
+根据上面推导的关系，可以将n个独立的二项式实验拆分成一个一个小实验。那么计算方差的方法可以简化为：$Var(X)=Var(X_1) + Var(X_2) + Var(X_3) + \cdots + Var(X_n) = n Var(X_1)=np(1-p)$
 
 ### The hat problem
 

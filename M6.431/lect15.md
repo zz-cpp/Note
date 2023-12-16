@@ -3,6 +3,7 @@
 ## Lecture 15: Linear Models With Normal Noise
 
 ### overvoew
+
 在上一堂课中，我们讨论了涉及到贝叶斯规则各种变化的推断示例。但我们没有考虑到一个情况，即未知随机变量和观测值都是连续的情况。在这堂课中，我们将专注于这种重要类型的模型。
 
 ![](ref/lect15/20230906074124.png)
@@ -31,11 +32,18 @@
 **根据贝叶斯方法，关于$\displaystyle \Theta$的推断本质上是在我告诉你观测值大写X取特定值小写x的情况下计算 $\displaystyle \Theta$ 的后验分布。**
 为了计算这个后验分布，我们调用Bayes规则的适当形式。
 
-为了取得后验分布，在Bayes的公式中，我们需要先找到在给定$\displaystyle \theta$下的，X的分布。此时$\displaystyle \theta$是一个常数。因为$\displaystyle W$是独立的，所以$\displaystyle X$的表达式是一个正态分布加上常数。X的均值和方差可以直接利用方差和期望的或者站在X的视角分析得出$\displaystyle N(0,1)$。
+为了取得后验分布，在Bayes的公式中，我们需要先找到在给定$\displaystyle \theta$下的，X的分布。此时$\displaystyle \theta$是一个常数。
+因为$\displaystyle W$是独立的，所以$\displaystyle X$的表达式是一个正态分布加上常数。X的均值和方差可以直接利用方差和期望的或者站在X的视角分析得出$\displaystyle N(\theta,1)$。
 
-使用公式计算后验分布，C表示的是正态分布归一化的参数。两个关于$\displaystyle e$的指数则分别是$\displaystyle \Theta$和X的正态分布的指数部分。现在可以将这个式子进行合并，前面有关X的分布和c的常数归为一类，后面有关指数部分函数的指数部分则则可以合并成关于$\displaystyle \Theta$的二次函数。注意此时的视角转变，在计算先验时，$\displaystyle \theta$视作常数，但是在后验是X才应该视作是常数。
+* $E[\theta + W] = \theta + E[W] = \theta$
+* $var(\theta + W) = var(W) = 0$
 
-现在固定x的值，表达式里真正有用的就是指数部分，因为我们需要找到正态分布的峰值，对于这个负的表达式而言就是取最小值，对这个部分求导，得出在$\displaystyle \Theta = \frac{x}{2}$，他的estimator为$\displaystyle \frac{X}{2}$。
+因此 $\displaystyle (X \mid \theta) \sim N(\theta,0)$
+
+
+使用公式计算后验分布，C表示的是正态分布归一化的参数。两个关于$\displaystyle e$的指数则分别是$\displaystyle \Theta$和$\theta \mid X$的正态分布的指数部分。现在可以将这个式子进行合并，前面有关X($f_X(x)$)的分布和c的常数归为一类,写成有关X的函数。后面有关指数部分函数的指数部分则可以合并成关于$\displaystyle \Theta$的二次函数。注意此时的视角转变，在计算先验时，$\displaystyle \theta$视作常数，**但是在后验是X才应该视作是常数。**
+
+现在固定x的值，表达式里真正有用的就是指数部分，因为我们需要找到正态分布的峰值，对于这个负的表达式而言就是取最小值(对指数部分的有关$\theta$的表达式求导，令其为零，取得$\theta$的最小值)，得出$\displaystyle \Theta = \frac{x}{2}$，他的estimator为$\displaystyle \frac{X}{2}$。
 
 ![](ref/lect15/20230906153818.png)
 
@@ -59,6 +67,8 @@
 和之前一样，我们也能最终将其整理成了常数部分和有关$\displaystyle \theta$的二次函数。
 因为是正态分布，估计值是他的峰值。对$\displaystyle quad(\theta)$求导，取其为0建立等式。将$\displaystyle \theta$与X分割开到两边，最后得到蓝色框中的公式。
 
+$\displaystyle \sum_{i=0}^n \frac{\theta}{\delta^2}- \sum_{i=0}^n\frac{x_i}{\delta^2}=0$
+
 ![](ref/lect15/20230906210134.png)
 
 图中的上半部分是是一些关键点的总结。
@@ -77,13 +87,18 @@
 ![](ref/lect15/20230907091938.png)
 
 使用距离的期望来测试性能。
-先来看在一个确定的观测值的条件下，将估计值用上文中的到的表达式代替，变换成了条件方差。
-根据一开始对正态分布的归纳，但出现图中情况的型式时，有对应的方差的公式。
 
-此处使用的随机变量是$\displaystyle \Theta$，公式中使用的是$\displaystyle X$，但是都一样。
-$\displaystyle \alpha$ 是$\displaystyle \theta ^2$的系数，所以需要提取$\displaystyle quad(\theta)$所有$\displaystyle \theta$平方项前的系数。此时表达式中的$\displaystyle x$是常数。借用方差的表达式，带入$\displaystyle \alpha$前的系数。可以得到的估计值。
+因为我们的模型是正态分布，所以估计值无论是使用之前所提到的那两种方法，结果$\displaystyle\hat{\theta}$既是可能性最大的值，也是期望值。这也是我们使用平方距离的方法最终会转化为计算方差。所以会得到图中的表达式。
 
-因为我们的模型是正态分布，所以估计值无论是使用之前所提到的那两种方法，结果$\displaystyle \hat{\theta}$既是可能性最大的值，也是期望值。这也是我们使用平方距离的方法最终会转化为计算方差。所以会得到图中的表达式。
+$$
+\begin{aligned}
+&E[(\theta - \hat{\theta}) \mid X=x] \xrightarrow[\hat{\theta_{MAP}}=\hat{\theta_{LMS}}]{} var(\theta \mid X=x) \\
+&E[(\theta - \hat{\theta})]=E[E[(\theta - \hat{\theta}) \mid X=x] ] \\
+&f_{\theta \mid X}(\theta \mid x)= C\,exp\{-quad(\theta)\} \quad quad(\theta) = \sum_{i=0}^n \frac{(X_i - \theta)^2}{2\delta _i ^2} \\
+& \delta^2= \frac{1}{2\alpha} \quad \frac{1}{2\alpha}=\sum_{i=0}^n \frac{1}{2\delta_i^2}\\
+\end{aligned}
+$$
+
 
 对于整体性能的评估，可以使用total Expection 或者 iteration Expection。前面条件期望的部分就是上面的条件期望，在此处作为一个常数。之后对X的PDF做积分为1。所以最后得出的结果和上文的一样。
 

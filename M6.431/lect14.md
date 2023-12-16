@@ -32,7 +32,7 @@ d) To illustrate the methodology, we pay special attention to a few canonical pr
 
 ![](ref/lect14/20230902171910.png)
 
-之前一直在学习的内容是Prpbability theory。
+之前一直在学习的内容是Probability theory。
 
 ![](ref/lect14/20230902172025.png)
 
@@ -71,17 +71,24 @@ d) To illustrate the methodology, we pay special attention to a few canonical pr
 
 你有一个发送信号的发射器，称之为S。这个信号通过某种介质传播，它可能只是大气。而介质会以某个因子a减弱信号。然后，当信号传播时，它还会受到一些噪声的干扰，称之为W，接收器看到的是一个观测值X。因此，这种情况由这个简单的方程描述。
 
-上文所提到的问题虽然描述和含义不相同，但是在数学上的描述是相同的。都是已经知道一个变量去推断另外一个变量。这意味着这两种问题可以采用相同的方法。
+上文所提到的问题(infer S and infer a)虽然描述和含义不相同，但是在数学上的描述是相同的。都是已经知道一个变量去推断另外一个变量。这意味着这两种问题可以采用相同的方法。
 
 ![](ref/lect14/20230902195118.png)
 
 另一种问题类型的区别：
 
-对于假设性检验，我们可能对某一个时间或者现象存在许多的模型。我们想要做的就是在众多的候补模型之中，找出正确的或者犯错最小的模型。们得到了一个雷达读数。问题是要进行推断，雷达是否探测到了一架飞机或者飞机是否存在。因此，在假设检验问题中，我们基本上是在少数几个离散的可能选择中进行选择。
+对于假设性检验，我们可能对某一个时间或者现象存在许多的模型。我们想要做的就是在众多的候补模型之中，找出正确的或者犯错最小的模型。我们得到了一个雷达读数。问题是要进行推断，雷达是否探测到了一架飞机或者飞机是否存在。因此，在假设检验问题中，我们基本上是在少数几个离散的可能选择中进行选择。
 
 于此相反的是，在估计问题之中，未知的数量更多地是数值类型的。它们甚至可以取连续的值。我们想要做的是个未知数量的估计值，该值接近我们试图估计的数量的真实但未知的值。因此，在这里，我们的性能目标是一种距离函数。我们希望接近真相。通常情况下，我们有一个可能选择的连续集合，也就是说，我们的估计可以是一般的实数。
 
 总的来说，这两种类型的问题，即假设检验和估计，在处理方式上有一些显著的不同，接下来我们将看到。
+
+
+problem collection:
+
+1. infer variable
+2. hypothesis (choose "right model" from some backup)
+3. estimate some value of number
 
 #### problem
 
@@ -92,7 +99,7 @@ d) To illustrate the methodology, we pay special attention to a few canonical pr
 ![](ref/lect14/20230903100908.png)
 
 我们将一个未知量视作是一个随机变量，这是区别其他frame 的地方。这个变量$\displaystyle \theta$，存在一个分布，即先验分布。
-之后我们观察到了一些数值，这也是一个随即变量，当观察的过程结束时，我们得到的是一个具体的数值$\displaystyle x$，而这个Observation process 根据一个概率模型进行建模。
+之后我们观察到了一些数值，这也是一个随机变量，当观察的过程结束时，我们得到的是一个具体的数值$\displaystyle x$，而这个Observation process 根据一个概率模型进行建模。
 此时我们指定了$\displaystyle X$的条件分布，一旦获取了具体的观测值时，就可以使用Bayesian rule 来计算$\displaystyle \theta$。
 
 对于参数$\displaystyle \theta$，他的先验分布从何而来？一般会使用对称性，等可能的在有限的模型之中选择。
@@ -179,16 +186,16 @@ g是我们用来处理数据的方法。它是一个特定的规则。
 
 这个示例是一个我们已经见过的示例的扩展，当我们首次介绍相关版本的贝叶斯规则时。我们有一枚硬币。它的偏差在0到1之间，但是偏差是未知的。根据贝叶斯哲学，我们将这个未知的偏差视为一个随机变量，并为它分配一个先验概率分布。我们独立地抛这枚硬币n次，其中n是某个正整数，然后记录所获得的头数。基于这个随机变量的值，我们希望对$\displaystyle \Theta$进行推断。
 
-首先是Bayes，这个公式的整体解释大体上符合下图的示范，红色的圆包含的就是分子的情况，黄色的大圆包含的就是分母。
+1. 假设$\displaystyle \theta$的先验分布是[0,1]的均匀分布
 
-![](ref/lect14/20230905161409.png)
+利用Bayes rule，得到如图中的表达式。
+$\displaystyle \frac{n \choose k}{P_K(k)}$ 与$\theta$无关，所有将他单独隔离出来得到$\frac{1}{d(n,k)}$
 
-这里我们假设$\displaystyle \Theta$的先验分布是$\displaystyle [0,1]$之间的均与分布，画出他的PDF可知，值恒为1。带入Bayes和二次向分布的性质，得到图中的表达式。
-表达式中对$\displaystyle \Theta$的依赖可以分开来看，将不涉及的项放在一起，可以合并成一个常数。分开的与$\displaystyle \Theta$有关的项，他是涉及两个变量幂的参数组合，$\displaystyle K \quad n -k$。在$\displaystyle [0,1]$内部是有效的，之外的PDF为0。
-$\displaystyle \Theta$ 的这种后验分布形式是某种类型的密度，并且出现在各种上下文中。因此，它有一个名称。它被称为具有特定参数的Beta分布，这些参数反映了这两个项中的指数。请注意，这些参数是指数增加了1。出于不涉及我们的历史原因，这只是一种惯例。重要的是能够识别使分布成为Beta分布所需的条件。这是$\displaystyle \Theta$的依赖性以某种形式为$\displaystyle \Theta$的一些幂乘以1减去Theta的一些其他幂。任何具有这种形式的分布都称为Beta分布。
+2. 假设$\displaystyle \theta$的先验分布是Beta 分布。
+同样将非$\theta$的部分提取出来用d表示。
 
-现在考虑一种不同的情况，如果$\displaystyle \Theta$先验就是Beta分布，带入Bayes，最后发现后验分布依然是Beta分布。
-应此我们从Beta分布的家族开始，后验也将是该家族的一部分。这是Beta分布的一个美丽性质，可以以各种方式利用。其中之一是它实际上允许以递归方式更新Theta的后验，随着我们获得越来越多的观测。
+通过最后的结果可以看到beta分布的一个性质，如果先验分布是Beta分布，那么后验分布也会是Beta分布，只是参数($\alpha \to \alpha+k \qquad \beta \to \beta+n-k$)变化了。
+
 
 ### Inferring the Unknown Bias of a Coin—Point Estimates
 
@@ -198,11 +205,11 @@ $\displaystyle \Theta$ 的这种后验分布形式是某种类型的密度，并
 
 ![](ref/lect14/20230905192753.png)
 
-一切和上文相同，后验分布为途中所示的Beta分布。
+一切和上文相同，后验分布为图中所示的Beta分布。
 
 首先使用MAP estimator，通过求导，找极值的方法，来找到后验分布的最大值。后验分布中的$\displaystyle  k$是小写，因为此时我们已经了到来观测值。得到的估计值为$\displaystyle \frac{k}{n}$。estimator是$\displaystyle \frac{K}{n}$，他是函数，是随机变量。
 
-现在使用LMS方法，求取在$\displaystyle K = k$的条件下，$\displaystyle \Theta$的期望。需要使用图中蓝色框中的结论，公式的具体推导略。
+现在使用LMS(least mean square)方法，求取在$\displaystyle K = k$的条件下，$\displaystyle \Theta$的期望。使用beta formula。
 估值为$\displaystyle \frac{k + 1}{n + 2}$，这里的k是小写，代表的是具体的值。
 
 现在，让我们比较我们得到的两个估计值，MAP估计和条件期望估计。它们非常相似，但不完全相同。这意味着Beta分布的均值并不等于使分布达到最高点的点。另一方面，如果n很大，当n很大时，这个表达式将近似等于k/n。因此，在大n的极限下，这两个估计值将不会相差太多。
@@ -211,3 +218,28 @@ $\displaystyle \Theta$ 的这种后验分布形式是某种类型的密度，并
 ### Summary
 
 ![](ref/lect14/20230905194335.png)
+
+### Beta formula
+
+![](ref/lect14/20231204143025.png)
+
+现在要计算出$\displaystyle \int_0 ^1 \theta^k (1-\theta)^{n-k}d\theta=\frac{k!(n-k)!}{( n+1 )!}$
+
+有两种思路：
+
+1. 直接利用积分计算
+2. 将 k替换为$\alpha $，n-k替换为$\beta$
+
+![](ref/lect14/20231204144006.png)
+
+设X和随机变量Y，Z为一个常数，将原本的表达式转换为求取这个序列的概率：$P(X_1<X_2<...<X_a<Z<Y_1< Y_2<...<Y_{\beta})$
+
+$P(A)=\int P(A\mid Z=\theta)f_Z(\theta)d\theta $
+$P(A \mid Z=\theta)=P(X_1,...,X_{\alpha} < \theta,Y_1,...,Y_{\beta}>\theta \quad and  \quad X_1<X_2...X_{\alpha} < \theta,Y_1<Y_2...Y_{\beta}) $
+在条件概率下($z=\theta$),$X_1<X_2<...$的概率(实际上就是每一个单独的X都在$\theta$左侧的概率)X是分布在[0,1]之间的均匀分布，现在要求在$\displaystyle \theta$的左侧，概率就是$\theta$(因为长度为$\displaystyle \theta$,概率就是$\theta \times 1$)，Y也是同理。$\displaystyle X_1 < X_2 <...<X_{\alpha}$的概率：$\displaystyle \frac{1}{所有的排序}= \frac{1}{\alpha!}$,Y同理。$\displaystyle f_{\theta}(\theta)=1$
+
+综合以上可以得到：P(A)=$\displaystyle \theta^\alpha(1-\theta)^\beta\frac{1}{\alpha!\beta!}$
+
+$\displaystyle P(A)=\frac{1}{(\beta + \alpha + 1 )!}$
+
+由此可以得出beta formula。

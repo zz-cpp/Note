@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="junit-jupiter-api-5.10.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../../../java/lib/junit-jupiter-api-5.10.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../../java/lib/junit-jupiter-engine-5.10.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../../../java/lib/junit-jupiter-params-5.10.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

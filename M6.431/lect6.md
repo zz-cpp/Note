@@ -365,7 +365,8 @@ $\displaystyle E[aX+bY+cZ+\cdots + mN]\\
 = E[aX] + E[bY] + E[cZ] + \cdots + E[mN]\\ 
 = aE[X] + bE[Y] + cE[Z] + \cdots + mE[N]$
 
-#### The mean of the binomal
+#### The mean of the binomial
+
 这是对多个随机变量的期望的线性性质的使用的例子。
 
 假设随机变量X，他满足二项式分布参数为P,N。
